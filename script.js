@@ -63,5 +63,6 @@ function pressC() {
 }
 
 function pressCE() {
+    if (currentInput.endsWith(" ")) action(() => currentInput = currentInput.slice(0, -2))
     action(() => currentInput = currentInput.slice(0, -1))
 }
