@@ -22,6 +22,7 @@ main {
   background:linear-gradient(#e58799,#882947);
   color: #fdf3f4;
   width: 18rem;
+  height: 5rem;
   text-wrap: wrap;
   font-size: 4rem;
   padding: 1rem;
