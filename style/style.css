@@ -10,7 +10,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Digital7', sans-serif;
 }
 
 main {
@@ -19,7 +19,7 @@ main {
 }
 
 .calc-screen {
-  background:linear-gradient(#e58799,#882947);
+  background: linear-gradient(#e58799, #882947);
   color: #fdf3f4;
   width: 18rem;
   height: 5rem;
@@ -27,12 +27,17 @@ main {
   font-size: 4rem;
   padding: 1rem;
   font-family: 'Digital7', sans-serif;
+  overflow: hidden;
+  text-overflow: clip;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .square {
   position: relative;
   width: 100%;
   padding-bottom: 100%;
+
 }
 
 .calc-buttons {
@@ -46,9 +51,11 @@ main {
 .btn {
   border: 0;
   padding: 0;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 500;
   text-align: center;
+  font-family: 'Digital7';
+  box-shadow: inset 0 0 0 0.2rem #882947;
 }
 
 .btn:hover {
@@ -76,18 +83,15 @@ main {
 }
 
 
-.calc-buttons-container{
+.calc-buttons-container {
   display: flex;
   flex-direction: column;
 }
 
-#btnEqual{
+#btnEqual {
   grid-row: span 2;
 }
 
 .double {
   grid-column: span 2;
 }
-
-
-
