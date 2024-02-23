@@ -92,6 +92,6 @@ main {
   grid-row: span 2;
 }
 
-.double {
-  grid-column: span 2;
+#btnSqrt {
+  font-size: 2rem;
 }

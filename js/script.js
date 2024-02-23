@@ -8,12 +8,14 @@ const equalButton = document.getElementById('btnEqual');
 const dotButton = document.getElementById('btnDot');
 const cButton = document.getElementById('btnC');
 const cEButton = document.getElementById('btnCE');
+const srqtButton = document.getElementById('btnSqrt');
 
 let errorState = false;
 
 cButton.addEventListener('click', pressC);
 cEButton.addEventListener('click', pressCE);
 equalButton.addEventListener('click', pressEqual);
+srqtButton.addEventListener('click', pressSqrt);
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -32,7 +34,7 @@ function updateResult() {
 }
 
 const setError = () => action(() => {
-    currentInput = 'Error';
+    currentInput = 'Error!!';
     errorState = true;
 });
 
@@ -50,9 +52,11 @@ const pressOperator = operator => action(() => currentInput += ` ${operator} `);
 
 function pressEqual() {
     try {
+        if (currentInput(" ")) setError();
         const result = eval(currentInput);
-        if (result) action(() => currentInput = String(result));
+        if (result != Infinity && result != -Infinity) action(() => currentInput = String(result));
         else setError();
+
     } catch (error) {
         setError();
     }
@@ -65,4 +69,17 @@ function pressC() {
 function pressCE() {
     if (currentInput.endsWith(" ")) action(() => currentInput = currentInput.slice(0, -2))
     action(() => currentInput = currentInput.slice(0, -1))
+}
+
+function pressSqrt() {
+    try {
+        const result = eval(currentInput);
+        if (!isNaN(result) && result >= 0) {
+            const sqrtResult = Math.sqrt(result);
+            action(() => currentInput = String(parseFloat(sqrtResult.toFixed(5))));
+        } else setError();
+
+    } catch (error) {
+        setError();
+    }
 }
