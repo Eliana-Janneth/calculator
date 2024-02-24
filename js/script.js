@@ -52,7 +52,7 @@ const pressOperator = operator => action(() => currentInput += ` ${operator} `);
 
 function pressEqual() {
     try {
-        if (currentInput(" ")) setError();
+        if (!currentInput.length) setError();
         const result = eval(currentInput);
         if (result != Infinity && result != -Infinity) action(() => currentInput = String(result));
         else setError();
